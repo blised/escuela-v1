@@ -24,3 +24,63 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+/* UnitCard Desing*/
+@layer components{
+  .card{
+    @apply
+    grid
+    gap-6
+    md:grid-cols-2
+    lg:grid-cols-4;
+  }
+  .unit-card{
+    @apply 
+    block 
+    rounded-2xl
+    border 
+    border-slate-200
+    bg-white
+    p-6
+    shadow-sm
+    transition;
+  }
+
+  .unit-card:hover{
+    @apply
+    -translate-y-1
+    shadow-md;
+  }
+
+  .unit-card-label{
+    @apply
+    text-sm
+    font-semibold
+    text-blue-600;
+  }
+
+  .unit-card-title{
+    @apply
+    mt-3
+    text-xl
+    font-bold
+    text-slate-900;
+  }
+
+  .unit-card-description{
+    @apply
+    mt-3
+    text-sm 
+    leading-6
+    text-slate-600;
+  }
+
+  .unit-card-action{
+    @apply
+    mt-6
+    text-sm
+    font-semibold
+    text-slate-600;
+  }
+}
