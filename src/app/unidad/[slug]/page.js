@@ -1,4 +1,5 @@
 // app/unidad/[slug]/page.js
+import UnidadClient from "@/components/UnidadClient";
 import { getUnidadBySlug } from "@/data/unidades";
 import { notFound } from "next/navigation";
 
@@ -14,9 +15,10 @@ export default async function UnidadPage({ params }) {
   }
 
   return (
-    <main>
-      <h1>{unidad.titulo}</h1>
-      <p>{unidad.descripcion}</p>
-    </main>
+    // <main>
+    //   <h1>{unidad.titulo}</h1>
+    //   <p>{unidad.descripcion}</p>
+    // </main>
+    <UnidadClient unidad={unidad} />
   );
 }

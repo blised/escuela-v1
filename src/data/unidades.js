@@ -25,6 +25,36 @@ export const unidades = [
                 descripcion: 'descripcion 3',
                 pdf: 'pdfs/unidad1/tema3.pdf',
             },
+            {
+                id: 'tema-4',
+                titulo: 'titulo3',
+                descripcion: 'descripcion 3',
+                pdf: 'pdfs/unidad1/tema3.pdf',
+            },
+            {
+                id: 'tema-5',
+                titulo: 'titulo3',
+                descripcion: 'descripcion 3',
+                pdf: 'pdfs/unidad1/tema3.pdf',
+            },
+            {
+                id: 'tema-6',
+                titulo: 'titulo3',
+                descripcion: 'descripcion 3',
+                pdf: 'pdfs/unidad1/tema3.pdf',
+            },
+            {
+                id: 'tema-7',
+                titulo: 'titulo3',
+                descripcion: 'descripcion 3',
+                pdf: 'pdfs/unidad1/tema3.pdf',
+            },
+            {
+                id: 'tema-8',
+                titulo: 'titulo3',
+                descripcion: 'descripcion 3',
+                pdf: 'pdfs/unidad1/tema3.pdf',
+            },
         ],
     },
     {
