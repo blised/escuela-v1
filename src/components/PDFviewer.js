@@ -31,6 +31,7 @@ export default function PDFviewer({tema}){
                 {/* <a href={tema.pdf} target="_blank">
                     Abrir PDF
                 </a> */}
+{/* borrar esto luego */}
                 </p>
             </object>
         </div>
