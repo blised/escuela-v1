@@ -3,64 +3,52 @@ export const unidades = [
     {
         id: 1,
         slug: "unidad-1",
-        titulo: 'Unidad 1: Diseño de algoritmos mediante pseudocódigo',
+        titulo: 'Unidad 1: Introducción a la lógica de programación aplicada a la seguridad',
         descripcion: 'dddddddd',
         carpetaPDF: '/pdfs/unidad1',
         temas: [
             {
                 id: 'tema-1',
-                titulo: 'titulo1',
+                titulo: 'Lógica de Programacion',
                 descripcion: 'descripcion 1',
-                pdf: 'pdfs/unidad1/tema1.pdf',
+                pdf: '/pdfs/unidad1/tema1.pdf',
             },
             {
                 id: 'tema-2',
-                titulo: 'titulo2',
+                titulo: 'Seguridad Lógica',
                 descripcion: 'descripcion 2',
-                pdf: 'pdfs/unidad1/tema2.pdf',
+                pdf: '/pdfs/unidad1/tema2.pdf',
             },
             {
                 id: 'tema-3',
-                titulo: 'titulo3',
+                titulo: 'Pensamiento computacional aplicado a la seguridad',
                 descripcion: 'descripcion 3',
-                pdf: 'pdfs/unidad1/tema3.pdf',
+                pdf: '/pdfs/unidad1/tema3.pdf',
             },
             {
                 id: 'tema-4',
-                titulo: 'titulo3',
+                titulo: 'Autenticación básica',
                 descripcion: 'descripcion 3',
-                pdf: 'pdfs/unidad1/tema3.pdf',
+                pdf: '/pdfs/unidad1/tema4.pdf',
             },
             {
                 id: 'tema-5',
-                titulo: 'titulo3',
-                descripcion: 'descripcion 3',
-                pdf: 'pdfs/unidad1/tema3.pdf',
+                titulo: 'Contraseñas seguras',
+                descripcion: '',
+                pdf: 'pdfs/unidad1/tema5.pdf',
             },
             {
                 id: 'tema-6',
-                titulo: 'titulo3',
+                titulo: 'Introducción al pseudocódigo',
                 descripcion: 'descripcion 3',
-                pdf: 'pdfs/unidad1/tema3.pdf',
-            },
-            {
-                id: 'tema-7',
-                titulo: 'titulo3',
-                descripcion: 'descripcion 3',
-                pdf: 'pdfs/unidad1/tema3.pdf',
-            },
-            {
-                id: 'tema-8',
-                titulo: 'titulo3',
-                descripcion: 'descripcion 3',
-                pdf: 'pdfs/unidad1/tema3.pdf',
+                pdf: 'pdfs/unidad1/tema6.pdf',
             },
         ],
     },
     {
         id: 2,
         slug: 'unidad-2',
-        titulo: 'Unidad 2:  Introducción a la lógica de programación aplicada a la seguridad.',
+        titulo: 'Unidad 2:  Análisis de problemas de seguridad informática y pseudocódigo estructurado',
         descripcion: 'dddddddd',
         carpetaPDF: '/pdfs/unidad2',
         temas: [
@@ -87,7 +75,7 @@ export const unidades = [
     {
         id:3,
         slug: 'unidad-3',
-        titulo: 'Unidad 3:  Análisis de problemas de seguridad informática.',
+        titulo: 'Unidad 3:  Principios de programación con Python aplicado a ciberseguridad',
         descripcion: 'dddddddd',
         carpetaPDF: '/pdfs/unidad3',
         temas: [
@@ -114,7 +102,7 @@ export const unidades = [
     {
         id:4,
         slug: 'unidad-4',
-        titulo: 'Unidad 4:  Análisis de problemas de seguridad informática.',
+        titulo: 'Unidad 4:  Desarrollo de scripts básicos de seguridad con Python',
         descripcion: 'dddddddd',
         carpetaPDF: '/pdfs/unidad4',
         temas: [
