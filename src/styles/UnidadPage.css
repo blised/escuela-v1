@@ -70,6 +70,17 @@
         tracking-wide
         text-slate-500;
     }
+
+    /* Main boton return */
+    .Unidad-BotonInicio1{
+        @apply
+        border-b border-slate-200 px-4 py-3
+    }
+    .Unidad-BotonInicio2{
+        @apply
+        flex items-center gap-2 text-sm text-slate-500 hover:text-slate-800
+    }
+
     .Unidad-tema-word{
         @apply
         px-4

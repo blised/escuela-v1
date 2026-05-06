@@ -1,6 +1,7 @@
 
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { unidades } from "@/data/unidades";
 //estilos
 
@@ -9,6 +10,12 @@ export default function Sidebar ({ unidad, temaActivo, onSelectTema}) {
 
     return(
         <aside className="Unidad-aside1">
+{/* bton back to main page with href */}
+            <div className="Unidad-BotonInicio1" >
+                <Link href="/" className="Unidad-BotonInicio2">
+                    ← Volver al inicio
+                </Link>
+            </div>
             <div className="Unidad-div1">
                 <h2 className="Unidad-contenido-word">
                     Contenido de la unidad
