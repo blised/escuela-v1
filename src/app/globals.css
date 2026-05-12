@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "../styles/UnidadPage.css";
+@import "../styles/LoginPage.css";
 
 :root {
   --background: #ffffff;

@@ -1,0 +1,55 @@
+@layer components{
+    /* PageLogin */
+    .Login-main{
+        @apply
+        flex min-h-screen items-center justify-center bg-slate-100
+    }
+    .Login-div{
+        @apply
+        rounded-2xl bg-white p-10 shadow-sm text-center
+    }
+    .Login-h1{
+        @apply
+        text-2xl font-bold text-slate-900 mb-2
+    }
+    .Login-p1{
+        @apply
+        text-slate-500 mb-6 text-sm
+    }
+    .Login-button{
+        @apply
+        flex items-center gap-3 mx-auto rounded-xl border 
+        border-slate-200 px-6 py-3 text-sm font-semibold 
+        text-slate-700 hover:bg-slate-50 transition
+    }
+    
+    /* Navbar */
+    .Navbar-nav{
+        @apply
+        flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4
+    }
+    .Navbar-link1{
+        @apply
+        font-bold text-slate-900 
+    }
+    .Navbar-div2{
+        @apply
+        flex items-center gap-3 
+    }
+    .Navbar-img1{
+        @apply
+        w-8 h-8 rounded-full
+    }
+    .Navbar-span1{
+        @apply
+        text-sm text-slate-600
+    }
+    .Navbar-button1{
+        @apply
+        text-sm text-red-500 hover:underline
+    }
+    .Navbar-link2{
+        @apply
+        rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 transition
+    }
+}
