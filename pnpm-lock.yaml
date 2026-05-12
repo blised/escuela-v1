@@ -41,6 +41,8 @@ importers:
         version: 4.2.4
 
 packages:
+  - 'packages/*'
+  - 'apps/*'
 
   '@alloc/quick-lru@5.2.0':
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
