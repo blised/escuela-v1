@@ -46,7 +46,7 @@ importers:
         specifier: ^4.90.1
         version: 4.90.1
 
-packages:
+packages: []
 
   '@alloc/quick-lru@5.2.0':
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
