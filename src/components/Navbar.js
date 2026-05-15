@@ -3,11 +3,13 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
+import { useUser } from "@/hooks/useUser";
 
 export default function Navbar(){
     const supabase = createClient();
     const router = useRouter();
     const [user, setUser] = useState(null);
+    const {userAdmin, isAdmin} = useUser(); // Para el admin
 
     useEffect(() => {
         // supabase.auth.getUser().then(({ data }) => setUser(data.user));
@@ -35,9 +37,10 @@ export default function Navbar(){
         await supabase.auth.signOut();
         router.refresh();
     }
-
+         // /admin=url to admin's panel 
     return(
         <nav className="Navbar-nav">
+            {isAdmin && ( <a href="/admin">Panel Admin</a>)}
             <Link href='/' className="Navbar-link1">
                 Material de ciberseguridad
             </Link>

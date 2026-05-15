@@ -1,4 +1,4 @@
-// E:\escuela-v1\src\app\singup\page.js
+// E:\escuela-v1\src\app\signup\page.js
 
 import { SignupForm } from "@/components/signup-form"
 export default function Page() {
