@@ -1,9 +1,17 @@
 // src/app/page.js
 import UnitCard from "@/components/UnitCard";
-import { unidades } from "@/data/unidades";
+// import { unidades } from "@/data/unidades";
 import Link from "next/link";
+import { createClient } from "@/lib/supabase/server";
 
-export default function Home() {
+export default async function Home() {
+  const supabase = await createClient();
+
+  const {data:unidades} = await supabase
+  .from("unidades")
+  .select("*")
+  .order("orden");
+
   return (
     <main className="min-h-screen bg-slate-100 px-6 py-10">
       <section className="mx-auto max-w-6xl">
@@ -20,7 +28,7 @@ export default function Home() {
         </div>
 
         <section className="card">
-          {unidades.map((unidad) => (
+          {unidades?.map((unidad) => (
             <UnitCard key={unidad.id} unidad={unidad}/>
           ))}
         </section>

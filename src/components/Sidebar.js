@@ -2,10 +2,10 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { unidades } from "@/data/unidades";
+// import { unidades } from "@/data/unidades";
 //estilos
 
-export default function Sidebar ({ unidad, temaActivo, onSelectTema}) {
+export default function Sidebar ({ unidad, temaActivo, onSelectTema, isAdmin}) {
     const [unidadAbierta, setUnidadAbierta] = useState(1); // to state if it's active or not
 
     return(
@@ -52,6 +52,14 @@ export default function Sidebar ({ unidad, temaActivo, onSelectTema}) {
                             </li>
                         ))}
                     </ul> 
+                    {isAdmin && (
+                        <button
+                            onClick={() => setAgregarTema(true)}
+                            className="side-AgregarTema1"
+                        >
+                            + Agregar tema
+                        </button>
+                    )}
                 </div>
             </nav>
         </aside>
