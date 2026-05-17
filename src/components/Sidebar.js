@@ -2,11 +2,13 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import EditarTemaModal from "./admin/EditarTemaModal";
 // import { unidades } from "@/data/unidades";
 //estilos
 
 export default function Sidebar ({ unidad, temaActivo, onSelectTema, isAdmin}) {
     const [unidadAbierta, setUnidadAbierta] = useState(1); // to state if it's active or not
+    const [agregarTema, setAgregarTema] = useState(false);
 
     return(
         <aside className="Unidad-aside1">
@@ -62,6 +64,14 @@ export default function Sidebar ({ unidad, temaActivo, onSelectTema, isAdmin}) {
                     )}
                 </div>
             </nav>
+
+            {agregarTema && (
+                <EditarTemaModal 
+                    tema={null}
+                    unidadId={unidad.id}
+                    onClose={() => setAgregarTema(false)}
+                />
+            )}
         </aside>
     );
 }

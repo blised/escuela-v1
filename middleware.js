@@ -5,8 +5,8 @@ export async function middleware(request){
     let supabaseResponse = NextResponse.next({ request });
 
     const supabase =  createServerClient(
-        process.env.NEXT_PUBLIC_SUPABASED_URL,
-        process.env.NEXT_PUBLIC_SUPABASED_ANNON_KEY,
+        process.env.NEXT_PUBLIC_SUPABASE_URL,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
         {
             cookies: {
                 getAll() {return request.cookies.getAll(); },
@@ -20,7 +20,6 @@ export async function middleware(request){
             },
         }
     );
-
     const {data: {user}} = await supabase.auth.getUser();
 
     // Proteger rutas /admin
@@ -28,22 +27,20 @@ export async function middleware(request){
         if (!user){
             return NextResponse.redirect(new URL("/login", request.url));
         }
-
         // Verificar rol admin en la base de datos
         const {data} = await supabase
         .from("usuarios")
         .select("role")
         .eq("id", user.id)
         .single();
-
         if (data?.role !== "admin"){
             return NextResponse.redirect(new URL("/", request.url));
         }
-
         return supabaseResponse;
     }
 
-    // await supabase.auth.getUser();
+    await supabase.auth.getUser();
+    return supabaseResponse; 
 
 }
 

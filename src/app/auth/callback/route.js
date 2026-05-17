@@ -14,6 +14,7 @@ export async function GET(request) {
         }
     }
 
-    return NextResponse.redirect(`${origin}/`);
+    // return NextResponse.redirect(`${origin}/`);
+    return NextResponse.redirect(`${origin}/?login=success`);
     
 }

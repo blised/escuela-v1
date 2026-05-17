@@ -1,8 +1,20 @@
-// E:\escuela-v1\src\app\login\page.js
+// src/app/login/page.js
 
 import { LoginForm } from "@/components/login-form";
+import { createClient } from "@/lib/supabase/server";
+import { redirect } from "next/navigation";
 
-export default function LoginPage() {
+export default async function LoginPage() {
+  // const supabase = await createClient();
+
+  // const {
+  //   data: { session }
+  // } = await supabase.auth.getSession();
+
+  // if (session) {
+  //   redirect("/");
+  // }
+
   return (
     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-sm">

@@ -76,7 +76,7 @@ export default function EditarTemaModal({tema, unidadId, onClose}) {
                 {esNuevo ? "Agregar tema" : "Editar tema"}
                 </h2>
 
-                <div className="ediar-div3">
+                <div className="editar-div3">
                     <input
                         value={titulo}
                         onChange={(e) => setTitulo(e.target.value)}

@@ -1,3 +1,5 @@
+// E:\escuela-v1\src\components\Navbar.js
+
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -8,8 +10,33 @@ import { useUser } from "@/hooks/useUser";
 export default function Navbar(){
     const supabase = createClient();
     const router = useRouter();
+
     const [user, setUser] = useState(null);
-    const {userAdmin, isAdmin} = useUser(); // Para el admin
+
+    const [showAdmin, setShowAdmin] = useState(false);
+    const {isAdmin} = useUser(); // Para el admin
+
+    // check if the user is admin
+    async function verificarAdmin(usuario) {
+        if (!usuario) {
+            setShowAdmin(false);
+            return;
+        }
+
+        const { data, error } = await supabase
+        .from("usuarios")
+        .select("role")
+        .eq("id", usuario.id)
+        .single();
+
+        if (error) {
+            console.log("Error al verificar admin:", error.message);
+            setShowAdmin(false);
+            return;
+        }
+
+        setShowAdmin(data?.role === "admin");
+    }
 
     useEffect(() => {
         // supabase.auth.getUser().then(({ data }) => setUser(data.user));
@@ -19,31 +46,50 @@ export default function Navbar(){
         // });
 
         // return () => listener.subscription.unsubscribe();
-        supabase.auth.getUser().then(({ data, error }) => {
-            console.log("USER:", data.user);
-            console.log("ERROR:", error);
-            setUser(data.user);
-        });
+        // supabase.auth.getUser().then(({ data, error }) => {
+        //     console.log("USER:", data.user);
+        //     console.log("ERROR:", error);
+        //     setUser(data.user);
+        // });
+        async function loadUser(){
+            const {data} = await supabase.auth.getUser();
+            setUser(data.user ?? null);
+            // setShowAdmin(Boolean(data.user && isAdmin));
+            await verificarAdmin(data.user);
+        }
 
-        const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
-            console.log("SESSION:", session);
-            setUser(session?.user ?? null);
+        loadUser();
+
+        const { data: listener } = supabase.auth.onAuthStateChange( async(_event, session) => {
+            // console.log("SESSION:", session);
+            const usuario = session?.user ?? null;
+            setUser(usuario);
+            await verificarAdmin(usuario);
+            // if(!session?.user){
+            //     setShowAdmin(false);
+            // }
         });
 
         return () => listener.subscription.unsubscribe();
     }, []);
 
     async function handleLogout(){
-        await supabase.auth.signOut();
-        router.refresh();
+        setUser(null);
+        setShowAdmin(false);
+
+        await supabase.auth.signOut({scope:"local"}); //scope: "local" limpia solo las cookies locales
+        window.location.replace("/");
     }
          // /admin=url to admin's panel 
     return(
         <nav className="Navbar-nav">
-            {isAdmin && ( <a href="/admin">Panel Admin</a>)}
+
+            {showAdmin && ( <Link href="/admin">Panel Admin</Link>)}
+
             <Link href='/' className="Navbar-link1">
                 Material de ciberseguridad
             </Link>
+
             <div>
                 {user ? (
                     <div className="Navbar-div2">
