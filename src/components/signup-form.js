@@ -26,6 +26,9 @@ export function SignupForm(props) {
         password,
         options: {
             data: { full_name: fullName },
+            // when yo get the email confirt, itll redirect to 
+            // the correct page
+            emailRedirectTo: `${window.location.origin}/auth/callback`,
         },
         });
 
@@ -41,6 +44,9 @@ export function SignupForm(props) {
         await supabase.auth.signInWithOAuth({
         provider: "google",
         options: { redirectTo: `${window.location.origin}/auth/callback` },
+        queryParams: {
+            prompt: "select_account"
+        }
         });
     }
 
