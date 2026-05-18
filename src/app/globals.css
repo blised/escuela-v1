@@ -35,8 +35,7 @@ body {
     @apply
     grid
     gap-6
-    md:grid-cols-2
-    lg:grid-cols-4;
+    md:grid-cols-2;
   }
   .unit-card{
     @apply 
@@ -54,6 +53,16 @@ body {
     @apply
     -translate-y-1
     shadow-md;
+  }
+
+  .unit-div1{
+    @apply
+    absolute right-4 top-4 z-10 flex gap-2
+  }
+
+  .unit-bt1{
+    @apply
+    rounded-lg bg-yellow-400 px-3 py-1 text-sm font-semibold text-slate-900 hover:bg-yellow-500
   }
 
   .unit-card-label{

@@ -1,17 +1,50 @@
 // src/components/UnitCard.jsx
-import Link from "next/link";
+"use client";
 
-export default function UnitCard({ unidad }){
+import Link from "next/link";
+import { useState } from "react";
+import EditarUnidadModal from "./admin/EditarUnidadModal";
+import EliminarUnidadBtn from "./admin/EliminarUnidadBtn";
+
+export default function UnitCard({ unidad, isAdmin, onEdit}){
+    const [editando, setEditando] = useState(false)
 
     return(
-        <Link href={`/unidad/${unidad.slug}`} className="unit-card">
-            <span className="unit-card-label">Unidad {unidad.id}</span>
+        <article className="unit-card relative">
+            {isAdmin && (
+                <div className="unit-div1">
+                    <button
+                        type="button"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            onEdit(unidad);
+                        }}
+                        className="unit-bt1"
+                    >
+                        Editar
+                    </button>
 
-            <h2 className="unit-card-title">{unidad.titulo}</h2>
+                    <EliminarUnidadBtn unidadId={unidad.id} />
+                </div>
+            )}
 
-            <p className="unit-card-description">{unidad.descripcion}</p>
+            <Link href={`/unidad/${unidad.slug}`} className="block h-full">
+                <span className="unit-card-label">Unidad {unidad.orden ?? unidad.id}</span>
 
-            <div className="unit-card-action">Ver unidad</div>
-        </Link>
+                <h2 className={`unit-card-title ${isAdmin ? "pr-28":""}`}>{unidad.titulo}</h2>
+
+                <p className="unit-card-description">{unidad.descripcion}</p>
+
+                <div className="unit-card-action">Ver unidad</div>
+            </Link>
+
+            {editando && (
+                <EditarUnidadModal
+                unidad={unidad}
+                onClose={() => setEditando(false)}
+                />
+            )}
+        </article>
     )
 }
