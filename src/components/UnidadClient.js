@@ -7,7 +7,15 @@ import { useUser } from "@/hooks/useUser";
 export default function UnidadClient({ unidad }){
 
     const [temaActivo, setTemaActivo] = useState(unidad.temas[0] ?? null);
-    const {isAdmin} = useUser();
+    const {isAdmin, loading} = useUser();
+
+    if (loading) {
+      return (
+        <div className="min-h-screen flex items-center justify-center">
+          Cargando permisos...
+        </div>
+      );
+    }
 
     return(
 

@@ -12,29 +12,56 @@ export function useUser() {
     useEffect(() => {
         const supabase = createClient();
 
-        async function fetchUser() {
-        const { data: { user } } = await supabase.auth.getUser();
+        async function cargarUsuario() {
+        setLoading(true);
 
-        if (!user) {
+        const {
+            data: { user },
+            error: userError,
+        } = await supabase.auth.getUser();
+
+        if (userError || !user) {
+            setUser(null);
+            setRole(null);
             setLoading(false);
             return;
         }
 
         setUser(user);
 
-        // Obtener el rol de la tabla usuarios
-        const { data } = await supabase
+        const { data, error } = await supabase
             .from("usuarios")
             .select("role")
             .eq("id", user.id)
             .single();
 
-        setRole(data?.role ?? null);
+        if (error) {
+            console.log("Error al obtener rol:", error.message);
+            setRole(null);
+        } else {
+            setRole(data?.role ?? null);
+        }
+
         setLoading(false);
         }
 
-        fetchUser();
+        cargarUsuario();
+
+        const {
+        data: { subscription },
+        } = supabase.auth.onAuthStateChange(() => {
+        cargarUsuario();
+        });
+
+        return () => {
+        subscription.unsubscribe();
+        };
     }, []);
 
-    return { user, role, isAdmin: role === "admin", loading };
+    return {
+        user,
+        role,
+        isAdmin: role === "admin",
+        loading,
+    };
 }

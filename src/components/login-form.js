@@ -3,14 +3,14 @@
 "use client";
 
 import { createClient } from "@/lib/supabase/client";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const supabase = createClient();
 
 export function LoginForm({ className = "", ...props }) {
     const [cargando, setCargando] = useState(false);
-    // const router = useRouter();
+    const router = useRouter();
 
     // useEffect(() => {
     //     async function verificarSesion() {
@@ -29,7 +29,7 @@ export function LoginForm({ className = "", ...props }) {
         e.preventDefault();
         setCargando(true);
 
-        // console.log("hola")
+        console.log("hola")
         // console.log("URL:", process.env.NEXT_PUBLIC_SUPABASE_URL);
         // console.log("KEY:", process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
 
@@ -53,10 +53,12 @@ export function LoginForm({ className = "", ...props }) {
             alert(error.message);
             return;
         }
-        if (data.session){
-            window.location.href = "/";
-        }        
-        // console.log("adios")
+        // if (data.session){
+        //     window.location.href = "/";
+        // }        
+        router.replace("/");
+        router.refresh();
+        console.log("adios")
         // } catch(err){
         //     console.error("ERROR INESPERADO LOGIN: ", err);
         //     alert("Ocurrio un error al iniciar sesion, checa la consola");
