@@ -77,8 +77,13 @@ export default function Navbar(){
         // setUser(null);
         // setShowAdmin(false);
 
-        await supabase.auth.signOut({scope:"local"}); //scope: "local" limpia solo las cookies locales
-        window.location.replace("/");
+        // op1
+        // await supabase.auth.signOut({scope:"local"}); //scope: "local" limpia solo las cookies locales
+        // window.location.replace("/");
+        // opt2
+        await supabase.auth.signOut();
+        router.replace("/");
+        router.refresh();
     }
          // /admin=url to admin's panel 
     return (

@@ -36,10 +36,10 @@ export async function middleware(request){
         if (data?.role !== "admin"){
             return NextResponse.redirect(new URL("/", request.url));
         }
-        return supabaseResponse;
+        // return supabaseResponse;
     }
 
-    await supabase.auth.getUser();
+    // await supabase.auth.getUser();
     return supabaseResponse; 
 
 }

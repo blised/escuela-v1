@@ -34,6 +34,10 @@ export function useUser() {
             .select("role")
             .eq("id", user.id)
             .single();
+        
+        console.log("USER ID:", user.id);
+        console.log("ROL OBTENIDO:", data?.role);
+        console.log("ERROR ROL:", error?.message); 
 
         if (error) {
             console.log("Error al obtener rol:", error.message);
