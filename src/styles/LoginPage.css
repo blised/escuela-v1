@@ -26,15 +26,33 @@
     /* Navbar */
     .Navbar-nav{
         @apply
-        flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4
+        flex
+        flex-wrap
+        items-center
+        justify-between
+        gap-3
+        border-b
+        border-slate-200
+        bg-white
+        px-4
+        py-4
+        md:px-6;
     }
+
     .Navbar-link1{
         @apply
-        font-bold text-slate-900 
+        font-bold
+        text-slate-900
+        whitespace-nowrap;
     }
+
     .Navbar-div2{
         @apply
-        flex items-center gap-3 
+        flex
+        flex-wrap
+        items-center
+        justify-end
+        gap-3;
     }
     .Navbar-img1{
         @apply
@@ -42,14 +60,29 @@
     }
     .Navbar-span1{
         @apply
-        text-sm text-slate-600
+        text-sm
+        text-slate-600
+        max-w-[140px]
+        truncate
+        md:max-w-none;
     }
     .Navbar-button1{
         @apply
-        text-sm text-red-500 hover:underline
+        text-sm
+        text-red-500
+        hover:underline
+        whitespace-nowrap;
     }
     .Navbar-link2{
         @apply
         rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 transition
+    }
+    .Navbar-adminLink{
+        @apply
+        text-sm
+        font-semibold
+        text-blue-600
+        hover:text-blue-700
+        whitespace-nowrap;
     }
 }

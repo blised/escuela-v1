@@ -1,44 +1,58 @@
 @layer components{
     .editar-div1{
         @apply
-        fixed inset-0 z-50 flex items-center justify-center bg-black/50
+        fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 px-4;
     }
+
     .editar-div2{
         @apply
-        w-full max-w-md rounded-2xl bg-white p-6 shadow-xl
+        w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl;
     }
+
     .editar-h2select{
         @apply
-        text-lg font-bold text-slate-900 mb-4
+        mb-5 text-lg font-bold text-slate-900;
     }
+
     .editar-div3{
         @apply
-        flex flex-col gap-3
+        flex flex-col gap-3;
     }
+
     .editar-titANDdesc{
         @apply
-        rounded-xl border border-slate-200 px-4 py-2 text-sm
+        w-full rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm
+        text-slate-900 placeholder:text-slate-400 outline-none
+        focus:border-blue-500 focus:ring-2 focus:ring-blue-500;
     }
+
     .editar-file{
         @apply
-        text-sm
+        text-sm text-slate-700
+        file:mr-4 file:rounded-lg file:border-0 file:bg-blue-50
+        file:px-4 file:py-2 file:text-sm file:font-semibold file:text-blue-700
+        hover:file:bg-blue-100;
     }
+
     .editar-div4{
         @apply
-        mt-4 flex justify-end gap-2
+        mt-5 flex justify-end gap-2;
     }
+
     .editar-cancelar{
         @apply
-        rounded-xl border px-4 py-2 text-sm
+        rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold
+        text-slate-600 hover:bg-slate-50;
     }
+
     .editar-save{
         @apply
-        rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold 
-        text-white disabled:opacity-50
+        rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold
+        text-white hover:bg-blue-700 disabled:opacity-50;
     }
 
     .EliminarTema-button{
         @apply
-        rounded-lg bg-red-500 px-3 py-1 text-sm font-semibold text-white
+        rounded-lg bg-red-500 px-3 py-1 text-sm font-semibold text-white hover:bg-red-600;
     }
 }

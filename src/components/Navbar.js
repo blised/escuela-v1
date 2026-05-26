@@ -88,7 +88,7 @@ export default function Navbar(){
          // /admin=url to admin's panel 
     return (
         <nav className="Navbar-nav">
-        {isAdmin && <Link href="/admin">Panel Admin</Link>}
+        {isAdmin && <Link href="/admin" className="Navbar-adminLink">Panel Admin</Link>}
 
         <Link href="/" className="Navbar-link1">
             Material de ciberseguridad
