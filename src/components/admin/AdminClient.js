@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const supabase = createClient();
 
@@ -32,11 +33,19 @@ export default function AdminClient({ usuarios }) {
     }
 
     return (
-        <main className="min-h-screen bg-slate-100 px-4 py-8 md:px-6 md:py-10">
+
+        <main className="min-h-screen bg-slate-100 px-4 py-8 md:px-6 md:py-10"> 
         <div className="mx-auto max-w-4xl">
             <h1 className="mb-6 text-2xl font-bold text-slate-900">
             Panel de Administración
             </h1>
+
+            <Link
+            href="/admin/practicas"
+            className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+            >
+            Gestionar prácticas
+            </Link>
 
             <div className="w-full overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
             <table className="min-w-[760px] text-sm">
@@ -103,5 +112,6 @@ export default function AdminClient({ usuarios }) {
             </div>
         </div>
         </main>
+
     );
 }
