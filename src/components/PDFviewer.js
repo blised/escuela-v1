@@ -41,19 +41,15 @@ export default function PDFviewer({tema, isAdmin, unidadId}){
             > 
                 Descargar PDF
             </a>
-            <object
+            {/* Vista del PDF */}
+            <iframe
                 key={tema.id}
-                data={tema.pdf_url} // pdf on supabase
-                type="application/pdf"
+                src={`https://docs.google.com/gview?url=${encodeURIComponent(tema.pdf_url)}&embedded=true`}
                 className="pdf-view1"
+                title={tema.titulo}
             >
-                <p>
-                No se pudo mostrar el PDF.{" "}
-                {/* <a href={tema.pdf} target="_blank">
-                    Abrir PDF
-                </a> */}
-                </p>
-            </object>
+                No se pudo mostrar el pdf
+            </iframe>
             {editando && (
                 <EditarTemaModal 
                     tema = {tema}
