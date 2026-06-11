@@ -41,10 +41,14 @@ export default function AdminClient({ usuarios }) {
             </h1>
 
             <Link
-            href="/admin/practicas"
-            className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
-            >
-            Gestionar prácticas
+                href="/admin/practicas"
+                className="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700">
+                Gestionar Python
+            </Link>
+
+            <Link href="/admin/pseudocodigo"
+                className="rounded-xl bg-purple-600 px-4 py-2 text-sm font-semibold text-white hover:bg-purple-700">
+                Gestionar Pseudocódigo
             </Link>
 
             <div className="w-full overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">

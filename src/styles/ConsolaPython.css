@@ -1,0 +1,136 @@
+.practica-sidebar-link {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    color: #3b82f6;
+    border-left: 2px solid #3b82f6;
+    margin: 4px 0;
+    transition: background 0.2s;
+    background: none;
+    cursor: pointer;
+}
+
+.practica-sidebar-link:hover {
+    background: #eff6ff;
+}
+
+.practica-sidebar-activa {
+    background: #dbeafe;
+    font-weight: 600;
+}
+
+.practica-resultado {
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.practica-correcto {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.practica-incorrecto {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.practica-container {
+  background: white;
+  color: #1e293b;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.practica-titulo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.practica-objetivo {
+  color: #334155;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.practica-descripcion {
+  color: #475569;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.practica-salida-esperada {
+  color: #334155;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.practica-botones {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.practica-ejecutar {
+  background: #2563eb;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.practica-ejecutar:hover {
+  background: #1d4ed8;
+}
+
+.practica-ejecutar:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.practica-resetear {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.practica-resetear:hover {
+  background: #e2e8f0;
+}
+
+.practica-output {
+  background: #0f172a;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 8px;
+}
+
+.practica-output-titulo {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.practica-output-texto {
+  color: #e2e8f0;
+  font-size: 0.875rem;
+  white-space: pre-wrap;
+  font-family: monospace;
+}

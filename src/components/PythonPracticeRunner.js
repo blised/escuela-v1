@@ -8,6 +8,7 @@ export default function PythonPracticeRunner({ practica }) {
     const [pyodide, setPyodide] = useState(null);
     const [loadingPy, setLoadingPy] = useState(true);
     const [ejecutando, setEjecutando] = useState(false);
+    const [resultado, setResultado] = useState(null); // "correcto" | "incorrecto" | null
 
     useEffect(() => {
         async function cargarPyodide() {
@@ -35,6 +36,7 @@ export default function PythonPracticeRunner({ practica }) {
         if (!pyodide) return;
         setEjecutando(true);
         setOutput("");
+        setResultado(null);
 
         let capturedOutput = "";
 
@@ -50,9 +52,19 @@ export default function PythonPracticeRunner({ practica }) {
 
         try {
         await pyodide.runPythonAsync(code);
+        const outputLimpio = capturedOutput.trim();
         setOutput(capturedOutput || "El programa se ejecutó sin salida.");
+
+        // Verificar si coincide con la salida esperada
+        if (practica.salida_esperada) {
+            const esperada = practica.salida_esperada.trim().toLowerCase();
+            const obtenida = outputLimpio.toLowerCase();
+            setResultado(obtenida.includes(esperada) ? "correcto" : "incorrecto");
+        }
+
         } catch (error) {
-        setOutput("❌ Error:\n" + String(error));
+            setOutput("❌ Error:\n" + String(error));
+            setResultado("incorrecto");
         }
 
         setEjecutando(false);
@@ -60,7 +72,11 @@ export default function PythonPracticeRunner({ practica }) {
 
     function resetearCodigo() {
         const confirmar = confirm("¿Resetear el código al inicial?");
-        if (confirmar) setCode(practica.codigo_inicial);
+        if (confirmar) {
+            setCode(practica.codigo_inicial);
+            setOutput("");
+            setResultado(null);
+        }
     }
 
     return (
@@ -121,6 +137,17 @@ export default function PythonPracticeRunner({ practica }) {
             ↺ Resetear
             </button>
         </div>
+
+        {/* Resultado */}
+        {resultado && (
+            <div className={`practica-resultado ${
+            resultado === "correcto" ? "practica-correcto" : "practica-incorrecto"
+            }`}>
+            {resultado === "correcto"
+                ? "✅ ¡Correcto! La salida coincide con la esperada."
+                : "❌ La salida no coincide con la esperada. Intenta de nuevo."}
+            </div>
+        )}
 
         {/* Salida */}
         {output && (

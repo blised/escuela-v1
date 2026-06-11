@@ -13,7 +13,7 @@ export default async function UnidadPage({ params }) {
 
   const {data:unidad} = await supabase
   .from ("unidades")
-  .select(`*, temas(*)`)
+  .select(`*, temas(*, practicas_python(*), practicas_pseudocodigo(*))`)
   .eq("slug", slug)
   .order("orden", {referencedTable: "temas"})
   .single();

@@ -132,7 +132,7 @@ export default function PracticaForm({ practica, temas }) {
                 <option value="">Sin tema</option>
                 {temas?.map((tema) => (
                 <option key={tema.id} value={tema.id}>
-                    {tema.titulo}
+                    {tema.unidades?.titulo ?? "Sin unidad"} — {tema.titulo}
                 </option>
                 ))}
             </select>
