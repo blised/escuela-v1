@@ -173,6 +173,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=tu-anon-key
 ## 🌐 Despliegue
 
 La aplicación está desplegada en **Cloudflare** usando OpenNext para compatibilidad con Next.js App Router.
+h🔗 **Repositorio:** [blised/escuela-v1](https://escuela-v1.jesusalbertosolismolina2003.workers.dev/)
 
 ---
 
